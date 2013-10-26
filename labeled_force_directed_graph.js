@@ -2,7 +2,7 @@ var width = 700, height = 450;
 var color = d3.scale.category20();
 var force = d3.layout.force()
     .charge(-520)
-    .linkDistance(240)
+    .linkDistance(120)
     .size([width, height]);
 var svg = d3.select(".visualize").append("svg")
     .attr("width", width)

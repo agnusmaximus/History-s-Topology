@@ -1,6 +1,7 @@
 SEARCH_URL = "https://www.googleapis.com/freebase/v1/mqlread";
-API_KEY = "AIzaSyBBJoStIWMWfWkgHIoRtLCCAg8B4ay2Vk8";
-QUERY_TIME_INTERVAL = 1000;
+//API_KEY = "AIzaSyBBJoStIWMWfWkgHIoRtLCCAg8B4ay2Vk8";
+API_KEY = "AIzaSyAyqIl8LzNg9Gs5uMGIeb0TCs2CXrgHy3o";
+QUERY_TIME_INTERVAL = 100;
 
 central_figure_src = undefined;
 
@@ -34,9 +35,8 @@ function get_figure_info(query, callback) {
     
     $.ajax({
 	type : "GET",
-	url : SEARCH_URL + "?query=" + query_string, 
-	key : API_KEY,
-	data : {filter : "(any type:/people/person)"}
+	url : SEARCH_URL + "?query=" + query_string,
+	data : {filter : "(any type:/people/person)", key : API_KEY,}
     })
 	.done(function(data) {
 	    callback(data);
@@ -81,21 +81,37 @@ function select_historical_figure_recursive(figures, count, depth_count) {
 function create_historical_nodes(figure_info, count) {
     console.log(figure_info);
     name = figure_info.result.name;
+    in_graph = -1;
     
+    //Check if figure already in graph	
+    for (i = 0; i < graph.nodes.length; i++) {
+	if (graph.nodes[i].name == name) {
+	    in_graph = i;
+	    break;
+	}
+    }
+
     //Keep track of the central figure
     if (count == 0) {
 	central_figure_src = graph.nodes.length;
+	
+	if (in_graph != -1) {
+	    central_figure_src = in_graph;
+	}
     }
     //Add a link from the central figure to the current figure
     else {
-	graph.links.push({"source" : central_figure_src, "target" : graph.nodes.length, "value" : 1});
+	
+	if (in_graph == -1)
+	    graph.links.push({"source" : central_figure_src, "target" : graph.nodes.length, "value" : 1});
     }
     
-    //Add the current node to the graph
-    graph.nodes.push({"info":figure_info.result,
-		      "name":name,
-		      "function":node_function});
-
+    if (in_graph == -1)
+	//Add the current node to the graph
+	graph.nodes.push({"info":figure_info.result,
+			  "name":name,
+			  "function":node_function});
+    
     related_figures = figure_info.result["/influence/influence_node/influenced"] 
 
     //Recurse on related figures
