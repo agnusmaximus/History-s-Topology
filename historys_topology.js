@@ -31,8 +31,6 @@ $(function() {
 function get_figure_info(query, callback) {
     query_string = JSON.stringify(query);
     
-    console.log(SEARCH_URL + "?query=" + query_string);
-    
     $.ajax({
 	type : "GET",
 	url : SEARCH_URL + "?query=" + query_string,
@@ -62,7 +60,7 @@ function select_historical_figure(data, count) {
 
 //Called when node is pressed
 function node_function(node) {
-    console.log("Pressed: ", node);
+    //console.log("Pressed: ", node);
 }
 
 //perform select historical figure recursively
@@ -79,7 +77,6 @@ function select_historical_figure_recursive(figures, count, depth_count) {
 
 //Creates nodes that represent historical figures
 function create_historical_nodes(figure_info, count) {
-    console.log(figure_info);
     name = figure_info.result.name;
     in_graph = -1;
     
