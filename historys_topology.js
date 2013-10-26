@@ -61,6 +61,7 @@ function select_historical_figure(data, count) {
 //Called when node is pressed
 function node_function(node) {
     //console.log("Pressed: ", node);
+    select_historical_figure(node.info, 0);
 }
 
 //perform select historical figure recursively
