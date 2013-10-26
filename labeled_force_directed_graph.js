@@ -1,4 +1,4 @@
-var width = 700, height = 450;
+var width = 900, height = 450;
 var color = d3.scale.category20();
 var force = d3.layout.force()
     .charge(-520)
@@ -6,7 +6,16 @@ var force = d3.layout.force()
     .size([width, height]);
 var svg = d3.select(".visualize").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("pointer-events", "all")
+    .append("svg:g")
+    .call(d3.behavior.zoom().on("zoom", redraw))
+    .append("svg:g");
+
+svg.append('svg:rect')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('fill', 'white');
 
 var link, gnodes, node, labels;
 
@@ -60,3 +69,10 @@ var draw_graph = function(graph) {
 	});
     });
 };
+
+function redraw() {
+  console.log("here", d3.event.translate, d3.event.scale);
+  svg.attr("transform",
+      "translate(" + d3.event.translate + ")"
+      + " scale(" + d3.event.scale + ")");
+}

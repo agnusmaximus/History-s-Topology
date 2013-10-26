@@ -104,6 +104,8 @@ function create_historical_nodes(figure_info, count) {
 	
 	if (in_graph == -1)
 	    graph.links.push({"source" : central_figure_src, "target" : graph.nodes.length, "value" : 1});
+	else
+	    graph.links.push({"source" : central_figure_src, "target" : in_graph, "value" : 1});
     }
     
     if (in_graph == -1)
