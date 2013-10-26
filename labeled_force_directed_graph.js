@@ -71,7 +71,6 @@ var draw_graph = function(graph) {
 };
 
 function redraw() {
-  console.log("here", d3.event.translate, d3.event.scale);
   svg.attr("transform",
       "translate(" + d3.event.translate + ")"
       + " scale(" + d3.event.scale + ")");
