@@ -20,3 +20,9 @@ body {
     display:block;
     height:450px;
 }
+
+.link {
+    color:red;
+    fill:red;
+    stroke:red;
+}

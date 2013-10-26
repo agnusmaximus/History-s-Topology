@@ -1,8 +1,8 @@
 var width = 700, height = 450;
 var color = d3.scale.category20();
 var force = d3.layout.force()
-    .charge(-1020)
-    .linkDistance(30)
+    .charge(-520)
+    .linkDistance(240)
     .size([width, height]);
 var svg = d3.select(".visualize").append("svg")
     .attr("width", width)
@@ -39,7 +39,7 @@ var draw_graph = function(graph) {
     
     node = gnodes.append("circle")
 	.attr("class", "node")
-	.attr("r", 20)
+	.attr("r", 10)
 	.style("fill", function(d) { return color(d.group); })
 	.call(force.drag)
 	.on("click", function(d) { if (d.hasOwnProperty("function")) d.function(d)});
