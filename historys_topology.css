@@ -1,9 +1,14 @@
 body {
     margin:50px;
+    min-width:1000px;
+}
+
+#wrapper {
+    text-align:center;
 }
 
 .search_margin {
-    text-align:center;
+    
 }
 
 #search {
@@ -12,5 +17,6 @@ body {
 }
 
 .visualize {
-    
+    display:block;
+    height:450px;
 }

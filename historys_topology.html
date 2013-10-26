@@ -4,20 +4,29 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="historys_topology.css"/>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/freebase/suggest/4_2/suggest.min.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/freebase/suggest/4_2/suggest.min.js"></script>
+    <link type="text/css" rel="stylesheet"
+	  href="https://www.gstatic.com/freebase/suggest/4_2/suggest.min.css" />
+    <script type="text/javascript"
+	    src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script type="text/javascript"
+	    src="https://www.gstatic.com/freebase/suggest/4_2/suggest.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
   </head>
   <body>
     <h2>History's Topology</h2>
-    <hr/>
-    <div class="search_margin">
-      <input id="search" class="input-large search-query" type="text"
-	     placeholder="Search a historical figure">
+    <div id="wrapper">
+      <hr/>
+      <div class="search_margin">
+	<input id="search" class="input-large search-query" type="text"
+	       placeholder="Search a historical figure">
+      </div>
+      <div class="visualize">
+	
+      </div>
+      <br/>
     </div>
-    <br/>
-    <div class="visualize"></div>
   </body>
-  <script type="text/javascript" src="arbor-v0.92/lib/arbor.js"></script>
+  <script type="text/javascript" src="labeled_force_directed_graph.js"></script>
   <script type="text/javascript" src="historys_topology.js"></script>
 </html>
