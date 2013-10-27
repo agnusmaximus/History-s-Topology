@@ -13,8 +13,10 @@ var svg = d3.select(".visualize").append("svg")
     .append("svg:g");
 
 svg.append('svg:rect')
-    .attr('width', width)
-    .attr('height', height)
+    .attr('x', -width * 1000 / 2)
+    .attr('y', -height * 1000 / 2)
+    .attr('width', width * 1000)
+    .attr('height', height * 1000)
     .attr('fill', 'white');
 
 var link, gnodes, node, labels;
