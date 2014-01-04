@@ -2,6 +2,4 @@
 
 Explore historical figures and those that they influence.
 
-Credits: Max Lam, Patrick McGartoll, Allen Zhu
-
 Demo: https://rawgithub.com/agnusmaximus/History-s-Topology/master/historys_topology.html
